@@ -1,3 +1,3 @@
 # My code for online programming contests
-#### Codeforces: SoHappy
+#### CodeForces: SoHappy
 #### AtCoder: zkx06111
