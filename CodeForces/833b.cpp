@@ -70,7 +70,6 @@ int query(int x, int l, int r, int ql, int qr){
 }
 
 int main(){
-	// freopen("d.in", "r", stdin);
 	scanf("%d%d", &n, &m);
 	REP(i, 1, n) scanf("%d", &ai[i]);
 	REP(i, 1, n){
@@ -80,16 +79,12 @@ int main(){
 		if (!prev[i]) ++dp[i];
 	}
 	dp[0] = -n;
-	// debug("prev[5] = %d\n", prev[5]);
 	REP(i, 2, m){
 		build(1, 1, n);
 		REP(j, 1, n){
-			// debug("add [%d, %d]\n", prev[j] + 1, j);
 			modify(1, 1, n, prev[j] + 1, j);
-			if (j >= i){
-				dp[j] = query(1, 1, n, i, j);
-				// debug("dp[%d][%d] = %d\n", i, j, dp[j]);
-			} else dp[j] = -n;
+			if (j >= i) dp[j] = query(1, 1, n, i, j);
+			else dp[j] = -n;
 		}
 	}
 	printf("%d\n", dp[n]);
